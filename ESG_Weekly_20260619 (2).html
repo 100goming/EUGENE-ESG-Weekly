@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESG Weekly | 2026.06.19 | 유진자산운용 ESG리서치팀</title>
+<style>
+/* ── 폰트 — 시스템 폰트만 사용 (로컬 파일 호환) ── */
+
+/* ── 토큰 ── */
+:root {
+  --navy:   #1B3A6B;
+  --blue:   #2563A8;
+  --lblue:  #D6E4F0;
+  --sky:    #EEF4FB;
+  --red:    #C0392B;
+  --lred:   #FDECEA;
+  --amber:  #D97706;
+  --lamber: #FEF3C7;
+  --green:  #16703C;
+  --lgreen: #DCFCE7;
+  --gray:   #6B7280;
+  --lgray:  #F3F4F6;
+  --border: #E5E7EB;
+  --dark:   #111827;
+  --white:  #FFFFFF;
+  --mono:   'Consolas', 'D2Coding', 'Courier New', monospace;
+  --sans:   '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: #F7F8FA;
+  color: var(--dark);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ── 레이아웃 ── */
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px 80px; }
+
+/* ── 헤더 ── */
+header {
+  background: var(--navy);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.18);
+}
+.header-inner {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+}
+.header-logo {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: .04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-logo span {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255,255,255,.55);
+  border-left: 1px solid rgba(255,255,255,.2);
+  padding-left: 10px;
+}
+.header-nav {
+  display: flex;
+  gap: 4px;
+}
+.header-nav a {
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: background .15s, color .15s;
+}
+.header-nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
+
+/* ── 히어로 ── */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #2255A0 100%);
+  color: var(--white);
+  padding: 52px 24px 44px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: 80px; bottom: -80px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.03);
+}
+.hero-inner { max-width: 1020px; margin: 0 auto; position: relative; }
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.55);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero-title {
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -.01em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.hero-title em {
+  font-style: normal;
+  color: #7DB8F0;
+}
+.hero-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,.72);
+  margin-bottom: 28px;
+}
+.hero-meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-meta-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.45);
+}
+.hero-meta-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+}
+
+/* ── 요약 바 ── */
+.summary-bar {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.summary-bar-item {
+  padding: 0 20px;
+  border-right: 1px solid var(--border);
+}
+.summary-bar-item:first-child { padding-left: 0; }
+.summary-bar-item:last-child { border-right: none; }
+.sb-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+.sb-val {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--navy);
+  font-family: var(--mono);
+}
+.sb-val.red { color: var(--red); }
+.sb-desc {
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 2px;
+}
+
+/* ── 섹션 ── */
+.section { margin-top: 44px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--navy);
+}
+.section-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--navy);
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: .06em;
+}
+.section-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ── 이슈 카드 ── */
+.issue-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  display: flex;
+  transition: box-shadow .15s;
+}
+.issue-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+
+/* 시그니처: 좌측 우선순위 컬러 바 */
+.issue-stripe {
+  width: 5px;
+  flex-shrink: 0;
+}
+.stripe-red    { background: var(--red); }
+.stripe-amber  { background: var(--amber); }
+.stripe-green  { background: var(--green); }
+
+.issue-body { flex: 1; padding: 18px 20px 16px; min-width: 0; }
+
+.issue-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.priority-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.badge-red   { background: var(--lred);   color: var(--red); }
+.badge-amber { background: var(--lamber); color: var(--amber); }
+.badge-green { background: var(--lgreen); color: var(--green); }
+
+.esg-tag {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--blue);
+  background: var(--lblue);
+  padding: 2px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.issue-company {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.issue-subtitle {
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+.issue-content {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 12px;
+}
+.issue-content p { margin-bottom: 6px; }
+.issue-content p:last-child { margin-bottom: 0; }
+
+.issue-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.implication {
+  font-size: 12.5px;
+  color: var(--dark);
+  line-height: 1.6;
+}
+.implication strong {
+  color: var(--blue);
+  font-weight: 600;
+}
+.sources {
+  font-size: 11.5px;
+  color: var(--gray);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.sources strong { color: var(--gray); font-weight: 600; }
+.sources a {
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(37,99,168,.3);
+  transition: border-color .12s, color .12s;
+}
+.sources a:hover { color: var(--navy); border-color: var(--navy); }
+.src-sep { color: var(--border); margin: 0 2px; }
+
+/* ── 요약 테이블 ── */
+.count-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+.count-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .03em;
+}
+.count-table td {
+  padding: 10px 14px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--dark);
+}
+.count-table tr:last-child td { background: var(--lgray); font-weight: 700; }
+.count-table td.hi { font-weight: 700; color: var(--red); }
+.count-table td.md { font-weight: 700; color: var(--amber); }
+.count-table td:first-child { text-align: left; font-weight: 600; }
+
+/* ── 스프레드 테이블 ── */
+.spread-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 12.5px;
+  margin-bottom: 20px;
+}
+.spread-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.spread-table th:first-child { text-align: left; }
+.spread-table td {
+  padding: 9px 12px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.spread-table td:first-child { text-align: left; font-family: var(--sans); font-weight: 600; }
+.spread-table td:nth-child(2) { font-family: var(--sans); font-size: 11.5px; }
+.spread-table td:last-child { font-family: var(--sans); font-size: 11.5px; text-align: left; }
+.spread-table tr.danger td { background: #FEF2F2; }
+.spread-table tr.warn td   { background: #FFFBEB; }
+.spread-table tr.good td   { background: #F0FDF4; }
+.spread-table .val-red   { color: var(--red);   font-weight: 700; }
+.spread-table .val-amber { color: var(--amber); font-weight: 700; }
+.spread-table .val-green { color: var(--green); font-weight: 700; }
+
+/* ── 밸류업 테이블 ── */
+.valueup-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 13px;
+}
+.valueup-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 9px 14px;
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.valueup-table td {
+  padding: 9px 14px;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+.valueup-table tr:nth-child(even) td { background: var(--lgray); }
+
+/* ── 관여 테이블 ── */
+.engage-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.engage-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 9px 14px;
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.engage-table td {
+  padding: 9px 14px;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+.engage-table tr:nth-child(even) td { background: var(--lgray); }
+.engage-num {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 13px;
+}
+
+/* ── 다음 주 체크리스트 ── */
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.checklist li::before {
+  content: '○';
+  color: var(--gray);
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.checklist li strong { color: var(--navy); }
+
+/* ── 알림 박스 ── */
+.alert-box {
+  background: var(--sky);
+  border: 1px solid var(--lblue);
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.alert-box strong { color: var(--navy); }
+
+/* ── 시장 카드 ── */
+.market-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.market-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.market-card-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+.market-card-val {
+  font-size: 22px;
+  font-weight: 900;
+  font-family: var(--mono);
+  color: var(--red);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.market-card-val.good { color: var(--green); }
+.market-card-desc {
+  font-size: 12px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* ── 풋터 ── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.55);
+  text-align: center;
+  font-size: 11.5px;
+  padding: 18px 24px;
+  margin-top: 60px;
+  line-height: 1.8;
+}
+footer strong { color: rgba(255,255,255,.85); }
+
+/* ── 반응형 ── */
+@media (max-width: 680px) {
+  .summary-bar { grid-template-columns: 1fr 1fr; }
+  .summary-bar-item:nth-child(2) { border-right: none; }
+  .market-cards { grid-template-columns: 1fr; }
+  .hero-title { font-size: 28px; }
+  .header-nav { display: none; }
+}
+@media print {
+  header { position: static; }
+  .hero { background: var(--navy) !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── 헤더 ── -->
+<header>
+  <div class="header-inner">
+    <div class="header-logo">
+      ESG WEEKLY
+      <span>유진자산운용 ESG리서치팀</span>
+    </div>
+    <nav class="header-nav">
+      <a href="#summary">요약</a>
+      <a href="#issues">이슈</a>
+      <a href="#market">시장</a>
+      <a href="#valueup">밸류업</a>
+      <a href="#engage">관여</a>
+      <a href="#next">다음주</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── 히어로 ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">국내 기업 ESG 주간 모니터링 리포트 · 제1호</div>
+    <div class="hero-title">ESG <em>Weekly</em></div>
+    <div class="hero-subtitle">2026년 6월 13일 — 6월 19일 모니터링 결과</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">발행일</div>
+        <div class="hero-meta-value">2026.06.19 (목)</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">작성</div>
+        <div class="hero-meta-value">ESG리서치팀 | 채권운용본부</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">배포</div>
+        <div class="hero-meta-value">내부 한정 (Internal Only)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 본문 ── -->
+<div class="wrap">
+
+  <!-- I. 핵심 요약 -->
+  <div class="section" id="summary">
+    <div class="section-header">
+      <span class="section-num">I</span>
+      <span class="section-title">이번 주 핵심 요약</span>
+    </div>
+
+    <div class="summary-bar">
+      <div class="summary-bar-item">
+        <div class="sb-label">이슈 총계</div>
+        <div class="sb-val">9</div>
+        <div class="sb-desc">E0 · S3 · G4 · 시장2</div>
+      </div>
+      <div class="summary-bar-item">
+        <div class="sb-label">High 🔴</div>
+        <div class="sb-val red">6</div>
+        <div class="sb-desc">즉각 대응 필요</div>
+      </div>
+      <div class="summary-bar-item">
+        <div class="sb-label">스프레드 최대 확대</div>
+        <div class="sb-val red">+161bp</div>
+        <div class="sb-desc">여천NCC 3Y물 (2026.05.19 대비)</div>
+      </div>
+      <div class="summary-bar-item">
+        <div class="sb-label">코스피 주간 최대 낙폭</div>
+        <div class="sb-val red">-8.40%</div>
+        <div class="sb-desc">6.8 서킷브레이커 발동</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;">
+      <table class="count-table">
+        <thead>
+          <tr>
+            <th style="text-align:left">구분</th>
+            <th>E (환경)</th>
+            <th>S (사회)</th>
+            <th>G (지배구조)</th>
+            <th>시장시그널</th>
+            <th>합계</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🔴 High</td>
+            <td>0</td>
+            <td class="hi">3</td>
+            <td class="hi">2</td>
+            <td class="hi">1</td>
+            <td class="hi">6</td>
+          </tr>
+          <tr>
+            <td>🟡 Medium</td>
+            <td>0</td>
+            <td>0</td>
+            <td class="md">2</td>
+            <td class="md">1</td>
+            <td class="md">3</td>
+          </tr>
+          <tr>
+            <td>합계</td>
+            <td>0</td>
+            <td>3</td>
+            <td>4</td>
+            <td>2</td>
+            <td>9</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert-box">
+      <strong>📌 이번 주 최우선 사항</strong> — 중앙그룹 JTBC 채무불이행(6.12) 및 5개사 회생절차 신청(6.14~15)으로 금융권 노출 8,000억원+, 중앙일보 회사채 1,370억원 EOD 연쇄 발동(6.17). <strong>콘텐트리중앙 CB 및 관련 회사채 보유 기관은 익스포저 즉시 점검 바랍니다.</strong>
+    </div>
+  </div>
+
+  <!-- II. ESG 이슈 상세 -->
+  <div class="section" id="issues">
+    <div class="section-header">
+      <span class="section-num">II</span>
+      <span class="section-title">ESG 이슈 상세</span>
+    </div>
+
+    <!-- 1. 중앙그룹 -->
+    <div class="issue-card">
+      <div class="issue-stripe stripe-red"></div>
+      <div class="issue-body">
+        <div class="issue-head">
+          <span class="priority-badge badge-red">🔴 HIGH</span>
+          <span class="esg-tag">G — 재무·지배구조 위기</span>
+        </div>
+        <div class="issue-company">중앙그룹 (JTBC · 콘텐트리중앙 · 메가박스 · 중앙홀딩스 · 중앙피앤아이 · 중앙일보)</div>
+        <div class="issue-subtitle">창사 이래 최대 위기 — 그룹 총차입금 2조 8,000억원, 채권 전면 동결</div>
+        <div class="issue-content">
+          <p>6.12 JTBC가 만기 도래 유동화차입금 206억원 상환에 실패하며 채무불이행을 선언했다. 6.14~15 중앙홀딩스·콘텐트리중앙·메가박스중앙·중앙피앤아이·JTBC 5개사가 서울회생법원에 기업회생절차를 신청했다.</p>
+          <p>6.16 법원은 5개사 전체에 보전처분과 포괄적 금지명령(채권 전면 동결)을 내렸다. 6.17 JTBC 신용등급 하락 조항 발동으로 중앙일보 발행 회사채 4개 종목(총 1,370억원)에 EOD가 연쇄 발생, 중앙일보는 워크아웃을 추진하기로 했다.</p>
+          <p>코로나19 이후 메가박스 적자 지속(콘텐트리중앙 부채 1조 8,000억원), 무리한 콘텐츠·스포츠 중계권 투자, 상암동 사옥 자산 매각(코람코 MOU) 실사 지연으로 6월 단기 만기를 방어하지 못한 것이 직접 원인이다.</p>
+          <p><strong>신용등급 변화:</strong> JTBC BBB(부정적)→CCC(장기) / A3→C(단기) · 중앙일보 BBB(부정적)→BB- · 채권수익률 716% 폭등</p>
+        </div>
+        <div class="issue-footer">
+          <div class="implication"><strong>📌 크레딧·투자 시사점</strong> — 금융권 노출 8,000억원+(은행권 8,329억원, 증권 1,251억원). 한투PE 콘텐트리중앙 사모CB 300억원 보유. 무보증 AA- 회사채 금리 4.375% 상승세 지속 — 중하위 등급 스프레드 전반 확대 압력. 채권 보유 기관 익스포저 즉시 점검 필요.</div>
+          <div class="sources">
+            <strong>📎 출처:</strong>
+            <a href="https://www.investchosun.com/site/data/html_dir/2026/06/15/2026061580165.html" target="_blank">인베스트조선 (2026.06.15)</a><span class="src-sep">|</span>
+            <a href="https://www.hankyung.com/article/2026061563637" target="_blank">한국경제 (2026.06.15)</a><span class="src-sep">|</span>
+            <a href="https://www.alphabiz.co.kr/news/articleView.html?idxno=160191" target="_blank">알파경제 — 중앙일보 EOD (2026.06.17)</a><span class="src-sep">|</span>
+            <a href="https://www.fnnews.com/news/202606170603304389" target="_blank">파이낸셜뉴스 — 채권 30% 급락 (2026.06.17)</a><span class="src-sep">|</span>
+            <a href="https://www.hankookilbo.com/news/article/A2026061600110005284" target="_blank">한국일보 — 회사채 시장 파장 (2026.06.16)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. TVING -->
+    <div class="issue-card">
+      <div class="issue-stripe stripe-red"></div>
+      <div class="issue-body">
+        <div class="issue-head">
+          <span class="priority-badge badge-red">🔴 HIGH</span>
+          <span class="esg-tag">S — 개인정보·보안사고</span>
+        </div>
+        <div class="issue-company">TVING (CJ ENM 자회사, 지분 48.85%)</div>
+        <div class="issue-subtitle">DB 직접 침입 — CI·DI 포함 전 회원정보 유출 (5.30 발생, 6.3 공지)</div>
+        <div class="issue-content">
+          <p>5.30 해커의 DB 직접 침입으로 아이디·이름·생년월일·성별·휴대전화번호·이메일·환불계좌번호·비밀번호와 함께 연계정보(CI)·중복가입확인정보(DI)까지 유출됐다. CI·DI 유출은 금융·통신 크리덴셜 스터핑 등 2차 피해 경로가 광범위하다.</p>
+          <p>6.3 최주희 대표 공식 사과. 과기부·KISA·개인정보위·방통위·경찰청 조사 착수. 집단소송 원고 모집 중(법무법인 세담). 6.10~7.2 CJ ONE 연동 계정 전면 잠금 조치 시행 중.</p>
+          <p>개인정보보호법상 과징금 최대 관련 매출의 3% — 수십억~수백억원 가능. 티빙 2Q 흑자전환 목표에 예상치 못한 비용 변수 등장.</p>
+        </div>
+        <div class="issue-footer">
+          <div class="implication"><strong>📌 크레딧·투자 시사점</strong> — CJ ENM(최대주주) 보안 거버넌스 관리책임론 확산. 서면 질의 권고: TVING 정보보호 체계 현황, CI/DI 재발 방지 대책, 과징금 준비 현황.</div>
+          <div class="sources">
+            <strong>📎 출처:</strong>
+            <a href="https://www.thepublic.kr/news/articleView.html?idxno=307553" target="_blank">더퍼블릭 — CJ ENM 책임론 (2026.06.17)</a><span class="src-sep">|</span>
+            <a href="https://www.topdaily.kr/articles/110455" target="_blank">탑데일리 — 과징금·재무 부담 (2026.06.10)</a><span class="src-sep">|</span>
+            <a href="https://namu.wiki/w/TVING_%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4_%EC%9C%A0%EC%B6%9C_%EC%82%AC%EA%B1%B4" target="_blank">나무위키 — TVING 개인정보 유출 사건 (2026.06)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. BGF -->
+    <div class="issue-card">
+      <div class="issue-stripe stripe-red"></div>
+      <div class="issue-body">
+        <div class="issue-head">
+          <span class="priority-badge badge-red">🔴 HIGH</span>
+          <span class="esg-tag">S — 개인정보·보안사고</span>
+        </div>
+        <div class="issue-company">BGF네트웍스 (BGF리테일 계열사) — CU POST 택배</div>
+        <div class="issue-subtitle">웹 취약점 악용 해킹 — CI 포함 온라인 회원 전 정보 유출 (6.4)</div>
+        <div class="issue-content">
+          <p>6.4 신원미상 해커가 웹 취약점을 악용해 CU POST 시스템에 비인가 접근, 온라인 회원의 아이디·비밀번호·이름·생년월일·성별·CI·주소·이메일·휴대전화번호가 유출됐다. 유출 회원 수와 침투 경로는 미공개.</p>
+          <p>BGF네트웍스는 ISMS 인증(2025.12~2028.12)을 보유하고 있었음에도 사고 발생 → 인증 형식과 실질 운영 간 괴리 논란. 개인정보위·KISA 신고 완료.</p>
+        </div>
+        <div class="issue-footer">
+          <div class="implication"><strong>📌 크레딧·투자 시사점</strong> — BGF리테일 모회사 평판 리스크 전이 가능. 서면 질의 권고: 계열사 보안사고 감독책임, ISMS 실질 운영 점검 결과 공개 요청.</div>
+          <div class="sources">
+            <strong>📎 출처:</strong>
+            <a href="https://www.ddaily.co.kr/page/view/2026060613132909130" target="_blank">디지털데일리 — CU 택배 유출 (2026.06.06)</a><span class="src-sep">|</span>
+            <a href="https://www.dailysecu.com/news/articleView.html?idxno=207104" target="_blank">데일리시큐 — ISMS 인증 체계 검증 (2026.06.07)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. 삼성전자 -->
+    <div class="issue-card">
+      <div class="issue-stripe stripe-red"></div>
+      <div class="issue-body">
+        <div class="issue-head">
+          <span class="priority-badge badge-red">🔴 HIGH</span>
+          <span class="esg-tag">S — 노사분규</span>
+          <span class="esg-tag">G — 주주권 충돌</span>
+        </div>
+        <div class="issue-company">삼성전자</div>
+        <div class="issue-subtitle">총파업 직전 잠정합의 가결 — DS/DX 최대 100배 성과급 격차, 법적 공방 진행 중</div>
+        <div class="issue-content">
+          <p>5.20 총파업 직전 노사 잠정합의(찬성 73.7% 가결). DS(반도체) 부문에 특별경영성과급(사업성과의 10.5%) 신설 — 메모리사업부 최대 6억원 vs DX(가전·모바일) 600만원 상당 자사주로 최대 100배 격차 발생.</p>
+          <p>DX 중심 동행노조: 합의 효력정지 가처분 신청(진행 중). 주주단체(대한민국주주운동본부): 세전 영업이익 기준 성과급 산정이 상법상 배당가능이익 원칙 위반이라며 이사회 결의 무효 소송 예고. 삼성SDI·삼성전기 등 계열사로의 성과급 인상 요구 확산 가능성.</p>
+        </div>
+        <div class="issue-footer">
+          <div class="implication"><strong>📌 크레딧·투자 시사점</strong> — 성과급 고정화(영업이익 연동)는 중장기 인건비 부담 증가 요인. 이사회 결의 적법성 논란은 G리스크와 교차. 서면 질의 권고: 성과급 이사회 승인 절차, 부문간 형평성, 주주-직원 이익 균형.</div>
+          <div class="sources">
+            <strong>📎 출처:</strong>
+            <a href="https://imnews.imbc.com/replay/2026/nwdesk/article/6825714_37004.html" target="_blank">MBC뉴스 — 성과급 합의 후폭풍 (2026.06.02)</a><span class="src-sep">|</span>
+            <a href="https://news.bizwatch.co.kr/article/industry/2026/05/26/0020" target="_blank">비즈워치 — 노사 소송전 (2026.05.26)</a><span class="src-sep">|</span>
+            <a href="https://www.fnnews.com/news/202605261627414444" target="_blank">파이낸셜뉴스 — 법정공방 전망 (2026.05.26)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. 지배구조 공시 -->
+    <div class="issue-card">
+      <div class="issue-stripe stripe-amber"></div>
+      <div class="issue-body">
+        <div class="issue-head">
+          <span class="priority-badge badge-amber">🟡 MEDIUM</span>
+          <span class="esg-tag">G — 이사회 독립성</span>
+        </div>
+        <div class="issue-company">코스피 상장사 전체 (795개사 전수조사)</div>
+        <div class="issue-subtitle">기업지배구조보고서 공시 전면 확대 첫해 성적표 — 2026.06.16 발표</div>
+        <div class="issue-content">
+          <p>리더스인덱스가 코스피 상장사 795곳을 전수조사한 결과, 15개 핵심지표 평균 준수율이 47.8%로 전년(54.3%) 대비 6.5%p 하락했다. 올해 처음 보고서를 제출한 신규 기업(중소형 상장사)의 준수율은 30% 미만에 그쳤다.</p>
+          <p>전자투표·내부감사기구 정보접근권 등 절차적 항목은 준수율이 높았으나, <strong>집중투표제 채택·사외이사 이사회 의장 선임·CEO 승계정책 마련 등 경영진 견제 항목은 현저히 저조</strong>했다. 준수율 100% 기업은 코스피 전체에서 단 6개사(0.8%).</p>
+        </div>
+        <div class="issue-footer">
+          <div class="implication"><strong>📌 크레딧·투자 시사점</strong> — 포트폴리오 내 준수율 하위 중소형 상장사 별도 스크리닝 권고. 집중투표제·CEO 승계정책 미비 기업은 관여 우선순위 대상.</div>
+          <div class="sources">
+            <strong>📎 출처:</strong>
+            <a href="https://www.munhwa.com/article/11595990" target="_blank">문화일보 (2026.06.16)</a><span class="src-sep">|</span>
+            <a href="https://www.khan.co.kr/article/202606161011001" target="_blank">경향신문 (2026.06.16)</a><span class="src-sep">|</span>
+            <a href="https://www.safetimes.co.kr/news/articleView.html?idxno=243522" target="_blank">세이프타임즈 (2026.06.16)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. 밸류업 -->
+    <div class="issue-card">
+      <div class="issue-stripe stripe-amber"></div>
+      <div class="issue-body">
+        <div class="issue-head">
+          <span class="priority-badge badge-amber">🟡 MEDIUM</span>
+          <span class="esg-tag">G — 밸류업 미이행</span>
+        </div>
+        <div class="issue-company">밸류업 지수 편출 19개사 (현대로템·효성중공업·롯데칠성·한샘·종근당 등)</div>
+        <div class="issue-subtitle">6.12부터 밸류업 지수 100% 공시기업으로 구성 — 편출 19개사 관여 필요</div>
+        <div class="issue-content">
+          <p>KRX 주가지수운영위원회 5.21 의결, 6.12 적용. HD현대중공업·SK스퀘어 등 20개 편입, 현대로템·효성중공업·LS ELECTRIC·포스코DX·풍산·롯데칠성·한샘·메가스터디교육·종근당 등 19개 편출.</p>
+          <p>이번 변경으로 밸류업 지수 100개 전 종목이 처음으로 기업가치제고계획 공시 기업으로 채워졌다. 편출 기업들은 시장 실적이 우수함에도 밸류업 공시 미이행 또는 주주환원 이행 구체성 부족으로 편출. 공시 미이행 기업은 밸류업 ETF 자금 유입에서 배제 → 자본비용 상승 압력.</p>
+        </div>
+        <div class="issue-footer">
+          <div class="implication"><strong>📌 크레딧·투자 시사점</strong> — 편출 기업(현대로템·롯데칠성·한샘 등)에 기업가치제고계획 수립 일정·주주환원 목표(ROE, 배당, 자사주 소각) 공개 요청 서한 발송 권고.</div>
+          <div class="sources">
+            <strong>📎 출처:</strong>
+            <a href="https://www.mt.co.kr/stock/2026/05/28/2026052817033037034" target="_blank">머니투데이 (2026.05.28)</a><span class="src-sep">|</span>
+            <a href="https://www.ebn.co.kr/news/articleView.html?idxno=1710523" target="_blank">EBN — 공시기업 100% 달성 (2026.05.28)</a><span class="src-sep">|</span>
+            <a href="https://www.sedaily.com/article/20049360" target="_blank">서울경제 (2026.05.28)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- III. 시장시그널 -->
+  <div class="section" id="market">
+    <div class="section-header">
+      <span class="section-num">III</span>
+      <span class="section-title">시장시그널 &amp; 신용스프레드 이상 탐지</span>
+    </div>
+
+    <div class="market-cards">
+      <div class="market-card">
+        <div class="market-card-label">코스피 주간 최대 낙폭 (6.8)</div>
+        <div class="market-card-val">−8.40%</div>
+        <div class="market-card-desc">7,474pt 마감 · 서킷브레이커 발동<br>글로벌 반도체 쇼크 + 달러 강세 복합 요인</div>
+      </div>
+      <div class="market-card">
+        <div class="market-card-label">SK하이닉스 역대최고가 (6.18)</div>
+        <div class="market-card-val good">2,688,000원</div>
+        <div class="market-card-desc">6.8 급락 후 빠른 반등 · ADR 상장 기대감<br>6.9 코스피 사상 최대폭 반등</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:8px; font-size:13px; font-weight:700; color:var(--navy);">신용스프레드 이상 탐지 — 2026.05.19 대비 1개월 변화 / 열: 채권 만기 텀 (단위: bp)</div>
+    <table class="spread-table">
+      <thead>
+        <tr>
+          <th>발행사</th>
+          <th>등급</th>
+          <th>3M물</th>
+          <th>6M물</th>
+          <th>1Y물</th>
+          <th>3Y물</th>
+          <th>5Y물</th>
+          <th>이슈 연계</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="danger">
+          <td>여천NCC</td><td>BBB+</td>
+          <td>+22.7</td><td>+47.9</td><td>+86.0</td>
+          <td class="val-red">+161.2</td><td>+138.0</td>
+          <td>한화·DL 주주갈등 + 유동성 위기</td>
+        </tr>
+        <tr class="danger">
+          <td>SK어드밴스드</td><td>BBB0</td>
+          <td>+46.1</td><td>+47.7</td><td>+83.8</td>
+          <td class="val-red">+104.2</td><td>+104.0</td>
+          <td>SK 계열 석유화학 구조조정</td>
+        </tr>
+        <tr class="warn">
+          <td>SK아이이테크놀로지</td><td>A−</td>
+          <td>+22.5</td><td>+16.2</td><td>+38.1</td>
+          <td class="val-amber">+30.3</td><td>+43.6</td>
+          <td>배터리 분리막 업황 부진</td>
+        </tr>
+        <tr class="warn">
+          <td>동화기업</td><td>BBB+</td>
+          <td>+8.1</td><td>+2.4</td><td>+29.4</td>
+          <td class="val-amber">+33.3</td><td>+28.1</td>
+          <td>원인 추가 확인 필요</td>
+        </tr>
+        <tr>
+          <td>롯데카드</td><td>카드AA−</td>
+          <td>+18.1</td><td>+11.7</td><td>+24.1</td>
+          <td>+8.2</td><td>+4.9</td>
+          <td>롯데그룹 크레딧 경계감</td>
+        </tr>
+        <tr>
+          <td>한화솔루션</td><td>AA−</td>
+          <td>+8.7</td><td>+0.5</td><td>+17.3</td>
+          <td>+2.3</td><td>+2.8</td>
+          <td>유상증자 + 여천NCC 지원 부담</td>
+        </tr>
+        <tr class="good">
+          <td>DL에너지</td><td>A+</td>
+          <td>+9.3</td><td>−0.5</td><td>+14.8</td>
+          <td class="val-green">−13.7</td><td>−35.6</td>
+          <td>발전자산 현금흐름 재평가 ↑</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box" style="margin-top:16px;">
+      <strong>석유화학 섹터 구조적 위기 심화</strong> — 여천NCC(BBB+ / 3Y +161bp)와 SK어드밴스드(BBB0 / +104bp)는 업황 부진 장기화와 그룹사 지원 불확실성이 맞물리며 시장 신뢰가 사실상 소진된 상태다. 한화솔루션과 DL케미칼이 여천NCC에 3,000억원 추가 출자를 결정했으나 양사 갈등이 지속 중이다.
+      <br><span style="font-size:12px; color:var(--gray); margin-top:4px; display:block;">출처:
+        <a href="https://www.etoday.co.kr/news/view/2497219" target="_blank" style="color:var(--blue);">이투데이 — 여천NCC 유동성 위기</a> |
+        <a href="https://dealsite.co.kr/articles/161926/089038" target="_blank" style="color:var(--blue);">딜사이트 — 석화 정기신용평가 (2026.05.18)</a>
+      </span>
+    </div>
+
+    <div class="alert-box" style="margin-top:12px; border-left-color:var(--green);">
+      <strong>SK하이닉스 미국 ADR 상장 추진 (밸류업 시그널)</strong> — 이르면 8월 미국 ADR 상장 추진 중, SEC 6월 넷째 주 승인 가능성 보도. 최대 140억달러(21조원) 조달 가능 전망. ADR 성사 시 글로벌 투자자 기반 확대 및 밸류에이션 디스카운트 축소 기대.
+      <br><span style="font-size:12px; color:var(--gray); margin-top:4px; display:block;">출처:
+        <a href="https://marketin.edaily.co.kr/News/ReadE?newsId=05097126645480408" target="_blank" style="color:var(--blue);">이데일리 (2026.06.10)</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- IV. 밸류업 공시 현황 -->
+  <div class="section" id="valueup">
+    <div class="section-header">
+      <span class="section-num">IV</span>
+      <span class="section-title">기업가치제고(밸류업) 공시 현황</span>
+    </div>
+    <table class="valueup-table">
+      <thead>
+        <tr>
+          <th style="width:22%">기업명</th>
+          <th style="width:18%">공시 여부</th>
+          <th style="width:18%">편출 여부</th>
+          <th>비고</th>
+          <th style="width:18%">관여 필요성</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>밸류업 지수 100개사</td><td>✅ 공시완료</td><td>—</td><td>6.12부터 전 종목 공시기업으로 구성</td><td>—</td></tr>
+        <tr><td><strong>현대로템</strong></td><td>❌ 미공시/이행미흡</td><td>편출(6.12~)</td><td>시장실적 우수에도 밸류업 공시 미이행</td><td>🔴 서면 관여</td></tr>
+        <tr><td><strong>효성중공업</strong></td><td>❌ 미공시/이행미흡</td><td>편출(6.12~)</td><td>—</td><td>🔴 서면 관여</td></tr>
+        <tr><td><strong>LS ELECTRIC</strong></td><td>❌ 미공시/이행미흡</td><td>편출(6.12~)</td><td>—</td><td>🟡 모니터링</td></tr>
+        <tr><td><strong>포스코DX</strong></td><td>❌ 미공시/이행미흡</td><td>편출(6.12~)</td><td>—</td><td>🟡 모니터링</td></tr>
+        <tr><td><strong>롯데칠성·한샘·종근당 등</strong></td><td>❌ 미공시/이행미흡</td><td>편출(6.12~)</td><td>추가 9개사</td><td>🟡 모니터링</td></tr>
+        <tr><td><strong>중앙그룹 계열사</strong></td><td>⚠️ 회생절차 진행</td><td>—</td><td>공시 정상화 불확실</td><td>🔴 익스포저 즉시 점검</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:var(--gray); margin-top:8px; font-style:italic;">※ 편출 사유(공시 미이행 vs 이행 구체성 부족)는 KRX가 개별 공개하지 않으므로 KIND 직접 확인 필요</p>
+  </div>
+
+  <!-- V. 관여 아이템 -->
+  <div class="section" id="engage">
+    <div class="section-header">
+      <span class="section-num">V</span>
+      <span class="section-title">관여활동(Engagement) 아이템</span>
+    </div>
+    <table class="engage-table">
+      <thead>
+        <tr>
+          <th style="width:5%">#</th>
+          <th style="width:22%">대상 기업</th>
+          <th style="width:46%">관여 아이템</th>
+          <th>관여 방식</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="engage-num">1</span></td>
+          <td>중앙그룹 (채권보유)</td>
+          <td>CB·회사채 익스포저 즉시 파악, 회생계획안 변제 조건 모니터링</td>
+          <td>채권단 대응 / 의결권 행사</td>
+        </tr>
+        <tr>
+          <td><span class="engage-num">2</span></td>
+          <td>CJ ENM (TVING 최대주주)</td>
+          <td>TVING 정보보호 거버넌스 및 CI 관리 체계 서면 질의</td>
+          <td>서면 질의서 발송</td>
+        </tr>
+        <tr>
+          <td><span class="engage-num">3</span></td>
+          <td>BGF리테일</td>
+          <td>BGF네트웍스 보안사고 감독책임 및 ISMS 실질 운영 점검</td>
+          <td>서면 질의서 발송</td>
+        </tr>
+        <tr>
+          <td><span class="engage-num">4</span></td>
+          <td>삼성전자</td>
+          <td>성과급 이사회 결의 적법성, 부문간 형평성, 주주이익 균형</td>
+          <td>서면 질의서 발송</td>
+        </tr>
+        <tr>
+          <td><span class="engage-num">5</span></td>
+          <td>한화솔루션</td>
+          <td>여천NCC 추가 출자 규모·조건, 유상증자 자금 사용 계획 투명성</td>
+          <td>서면 관여 / 모니터링</td>
+        </tr>
+        <tr>
+          <td><span class="engage-num">6</span></td>
+          <td>밸류업 지수 편출사</td>
+          <td>기업가치제고계획 수립 일정 및 주주환원 목표(ROE·배당·자사주 소각) 공개 요청</td>
+          <td>서면 서한 발송</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- VI. 다음 주 -->
+  <div class="section" id="next">
+    <div class="section-header">
+      <span class="section-num">VI</span>
+      <span class="section-title">다음 주 모니터링 예정 사항</span>
+    </div>
+    <ul class="checklist">
+      <li><div><strong>중앙그룹 회생법원 심리</strong> — 회생절차 개시 결정 및 회생계획안 제출 일정 확인</div></li>
+      <li><div><strong>TVING·BGF네트웍스 개인정보 유출 조사</strong> — 과기부·개인정보위 조사 결과 및 과징금 규모 확인</div></li>
+      <li><div><strong>JTBC 회사채 불완전판매</strong> — 금융당국 조사 결과 (신한·한양·NH·KB증권 발행 주관사)</div></li>
+      <li><div><strong>여천NCC 하반기 만기 차입금</strong> — 한화·DL 추가 지원 협의 동향 및 만기 대응 현황</div></li>
+      <li><div><strong>SK하이닉스 미국 ADR 상장</strong> — SEC 승인 여부 (6월 넷째 주 예상)</div></li>
+      <li><div><strong>ESG 공시 로드맵</strong> — 금융위원회 최종안 확정 여부 (2026년 상반기 내 예정)</div></li>
+      <li><div><strong>코스피 기업지배구조보고서</strong> — 금융당국 사후 점검 및 정정 공시 요구 기업 리스트</div></li>
+      <li><div><strong>신용스프레드 파일 업데이트</strong> — 석유화학·미디어·카드 섹터 재점검</div></li>
+    </ul>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <strong>유진자산운용 ESG리서치팀</strong> · ESG Weekly 제1호 · 2026.06.19<br>
+  본 자료는 내부 참고 목적으로만 활용하며, 외부 배포를 금합니다. (Internal Use Only)
+</footer>
+
+</body>
+</html>
